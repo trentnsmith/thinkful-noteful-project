@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import NoteContext from '../NoteContext';
 
 class Notelist  extends Component {
+    static contextType = NoteContext;
     render() {
-        let filteredNotes = this.props.notes
+        let filteredNotes = this.context.notes
         if (this.props.folderId) {
             filteredNotes = filteredNotes.filter((note) => {
                 return note.folderId == this.props.folderId
