@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import NoteContext from '../NoteContext';
 import Note from '../Note/Note';
 
@@ -23,11 +23,14 @@ class Notelist  extends Component {
                                 id={note.id}
                                 modified={note.modified} 
                             />
-                            
                         </div>
                     )
                 })}
+                    <Link to={'/add-note'}>
+                        Add note
+                    </Link>
             </div>
+            
         )
     }
 }

@@ -6,6 +6,8 @@ import Header from '../Header/Header'
 import Mainpage from '../Mainpage/Mainpage';
 import NoteDetail from '../NotePage/NotePage';
 import NoteContext from '../NoteContext'
+import AddFolder from '../AddFolder/AddFolder';
+import AddNote from '../AddNote/AddNote';
 import './App.css'
 
 class App extends Component {
@@ -51,7 +53,9 @@ class App extends Component {
           <BrowserRouter>
             <Route exact path='/' component={Mainpage} />
             <Route path='/folder/:folderId' component={Mainpage} />
-            <Route path='/note/:noteId' component={NoteDetail} />        
+            <Route path='/note/:noteId' component={NoteDetail} />  
+            <Route path='/add-folder' component={AddFolder} />  
+            <Route path='/add-note' component={AddNote} />    
           </BrowserRouter>
         </main>
       </NoteContext.Provider>

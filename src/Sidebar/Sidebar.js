@@ -16,6 +16,9 @@ class Sidebar extends Component {
                             </div>
                     )
                 }) }
+                <Link to={'/add-folder'}>
+                    Add Folder
+                </Link>
             </div>
         )
     }
