@@ -9,14 +9,18 @@ class AddFolder extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault();
         if (this.state.name) {
-            fetch('http://localhost:9090/folders', {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify({name: this.state.name})})
+            fetch('http://localhost:9090/folders', {
+                method: 'POST', 
+                headers: {'content-type': 'application/json'}, 
+                body: JSON.stringify({name: this.state.name})
+            })
             .then((response) => {
                 return response.json
             })
             .then((responseJson) => {
                 console.log(responseJson)
                 this.props.history.push('/')
-                
+
             })
             .catch((error) => {
                 console.log(error)

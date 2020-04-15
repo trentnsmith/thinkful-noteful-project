@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import STORE from '../dummy-store';
+import NoteContext from '../NoteContext';
 
 class AddNote extends Component {
 
@@ -21,17 +22,17 @@ class AddNote extends Component {
 
     handleFormSubmit = (e) => {
         e.preventDefault();
+        let newNote = {
+            name: e.target.value,
+            content: e.target.value,
+            folderId: e.target.value,
+            modified: new Date()
+        }
         if (this.state.name) {
             fetch('http://localhost:9090/notes', 
                 {method: 'POST', 
                 headers: {'content-type': 'application/json'}, 
-                body: JSON.stringify(
-                    {name: this.state.name},
-                    {id: this.state.id},
-                    {modified: this.state.modified},
-                    {folderId: this.state.folderId},
-                    {content: this.state.content}
-                    )})
+                body: JSON.stringify(newNote)})
             .then((response) => {
                 return response.json
             })
