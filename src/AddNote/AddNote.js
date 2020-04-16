@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import STORE from '../dummy-store';
 import NoteContext from '../NoteContext';
+import { Link } from 'react-router-dom';
 
 class AddNote extends Component {
 
@@ -23,9 +24,9 @@ class AddNote extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault();
         let newNote = {
-            name: e.target.value,
-            content: e.target.value,
-            folderId: e.target.value,
+            name: this.state.name,
+            content: this.state.content,
+            folderId: this.state.folderId,
             modified: new Date()
         }
         if (this.state.name) {
@@ -51,6 +52,7 @@ class AddNote extends Component {
 
     render() {
         return(
+            
             <section>
                 <h2>Create a note</h2>
                 <form onSubmit={this.handleFormSubmit}> 
@@ -70,7 +72,7 @@ class AddNote extends Component {
                         <label>
                             Folder
                         </label>
-                        <select>
+                        <select onChange={this.handleNoteFolderId}>
                             <option value={null}>Choose folder</option>
                             {STORE.folders.map(folder =>
                                 <option key={folder.id} value={folder.id}>
@@ -81,6 +83,11 @@ class AddNote extends Component {
                     </div>
                     <div>
                         <input type="submit" value="Add note" />
+                    </div>
+                    <div>
+                        <Link to='/'>
+                            Go Back
+                        </Link>
                     </div>
                 </form>
             </section>

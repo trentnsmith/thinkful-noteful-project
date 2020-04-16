@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class AddFolder extends Component {
 
@@ -42,8 +43,12 @@ class AddFolder extends Component {
                        <input type="text" onChange={this.handleNameChange}/>
                    </div>
                    <div>
-                       <input type="submit" value="Add folder" />
-                           
+                       <input type="submit" value="Add folder" />    
+                   </div>
+                   <div>
+                       <Link to='/'>
+                           Go Back
+                       </Link>
                    </div>
                 </form>
             </section>
