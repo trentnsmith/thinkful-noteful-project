@@ -10,6 +10,9 @@ class Note extends Component {
     }
     render () {
         let { name, id, modified } = this.props
+        console.log(name)
+        console.log(id)
+        console.log(modified)
         return (
             <div>
                 <h1>
