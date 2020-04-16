@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { findAllByTestId } from '@testing-library/react';
 
-class ValidationError extends Component {
+
+class Error extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,12 +13,13 @@ class ValidationError extends Component {
     }
 
     render() {
-        return (
-            <div className="error">
-
-            </div>
-        )
+        if(this.state.hasError) {
+            return(
+                <h2>Could not complete</h2>
+            )
+        }
+        return this.props.children
     }
 }
 
-export default ValidationError;
+export default Error;

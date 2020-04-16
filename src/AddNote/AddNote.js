@@ -2,26 +2,22 @@ import React, { Component } from 'react';
 import STORE from '../dummy-store';
 import NoteContext from '../NoteContext';
 import { Link } from 'react-router-dom';
+import ValidationError from '../Validation';
 
 class AddNote extends Component {
-
-    handleNoteName = (e) => {
+    
+    handleNoteName(e) {
         this.setState({name: e.target.value})
     }
-    handleNoteId = (e) => {
-        this.setState({id: e.target.value})
-    }
-    handleNoteModified = (e) => {
-        this.setState({modified: e.target.value})
-    }
-    handleNoteFolderId = (e) => {
+    
+    handleNoteFolderId(e) {
         this.setState({folderId: e.target.value})
     }
-    handleNoteContent = (e) => {
+    handleNoteContent(e) {
         this.setState({content: e.target.value})
     }
 
-    handleFormSubmit = (e) => {
+    handleFormSubmit(e) {
         e.preventDefault();
         let newNote = {
             name: this.state.name,
@@ -50,6 +46,19 @@ class AddNote extends Component {
         }
     }
 
+    validateName() {
+        let name = this.state.name.value.trim();
+        if (name.length === 0) {
+            return 'Name is required';
+        }
+    }
+    validateContent() {
+        let content = this.state.content.value.trim();
+        if (content.length === 0) {
+            return 'Content is required'
+        }
+    }
+    
     render() {
         return(
             
@@ -61,6 +70,7 @@ class AddNote extends Component {
                             Name
                         </label>
                         <input type="text" onChange={this.handleNoteName} />
+                        <ValidationError message={this.validateName()} />
                     </div>
                     <div>
                         <label>
