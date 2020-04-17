@@ -37,9 +37,8 @@ class AddNote extends Component {
                 body: JSON.stringify(newNote)})
             .then(async (response) => {
                 let savedNote = await response.json();
-                this.context.addNote(newNote);
                 this.props.history.push('/')
-    
+                this.context.addNote(savedNote);
             })
             .catch((error) => {
                 console.log(error)

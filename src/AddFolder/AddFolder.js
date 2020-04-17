@@ -22,12 +22,12 @@ class AddFolder extends Component {
                 body: JSON.stringify({name: this.state.name})
             })
             .then((response) => {
-                return response.json
+                return response.json()
             })
             .then((responseJson) => {
                 console.log(responseJson)
                 this.props.history.push('/')
-                this.context.addFolder()
+                this.context.addFolder(responseJson)
 
             })
             .catch((error) => {
