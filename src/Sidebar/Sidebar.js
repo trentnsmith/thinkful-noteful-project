@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NoteContext from '../NoteContext';
+import './Sidebar.css';
 
 class Sidebar extends Component {
     static contextType = NoteContext;
     render() {
         return(
-            <div>
+            <div className="folder-list">
                 {this.context.folders.map((folder) => {
                     return(
-                        <div> 
-                            <Link to={`/folder/${folder.id }`}>
+                        <div className="folder-div"> 
+                            <Link className="folder-link" to={`/folder/${folder.id }`}>
                                 {folder.name}                            
                             </Link>
-                            </div>
+                        </div>
                     )
                 }) }
-                <Link to={'/add-folder'}>
-                    Add Folder
-                </Link>
+                <div className="addfolder-div">
+                    <Link className="addfolder-link" to={'/add-folder'}>
+                        Add Folder
+                    </Link>
+                </div>
             </div>
         )
     }

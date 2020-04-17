@@ -1,0 +1,21 @@
+.notelist {
+    margin-left: 10px;
+    border: 2px black solid;    
+}   
+
+.addnote-link {
+    text-decoration: none;
+    font-size: larger;
+    border: none;
+    background-color: lightseagreen;
+    border-radius: 45%;
+    padding: 10px 10px;
+}
+
+.addnote-div {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.addnote-link:hover {
+    color: rgb(224, 112, 7);
+}

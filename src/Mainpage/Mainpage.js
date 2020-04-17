@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import Notelist from '../Notelist/Notelist';
-import STORE from '../dummy-store';
+//import STORE from '../dummy-store';
+import './Mainpage.css';
 
 class Mainpage extends Component {
 
@@ -15,9 +16,9 @@ class Mainpage extends Component {
 
       
         return(
-            <div>
-               <Sidebar  />
-               <Notelist  folderId={this.props.match.params.folderId} />     
+            <div className="mainpage">
+               <Sidebar />
+               <Notelist folderId={this.props.match.params.folderId} />     
             </div>
             
         )

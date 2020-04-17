@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ValidationError from '../Validation';
 import NoteContext from '../NoteContext';
+import './AddFolder.css';
 
 class AddFolder extends Component {
     state = {
@@ -47,7 +48,7 @@ class AddFolder extends Component {
 
     render() {
         return(
-            <section>
+            <section className="create-folder">
                 <h2>Create a folder</h2>
                 <form onSubmit={this.handleFormSubmit}>
                    <div>
@@ -58,10 +59,10 @@ class AddFolder extends Component {
                        <ValidationError message={this.validateFolderName} />
                    </div>
                    <div>
-                       <input type="submit" value="Add folder" />    
+                       <input className="folder-submit" type="submit" value="Add folder" />    
                    </div>
-                   <div>
-                       <Link to='/'>
+                   <div className="back-folder-div">
+                       <Link className="back-folder-link" to='/'>
                            Go Back
                        </Link>
                    </div>

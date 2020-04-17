@@ -1,0 +1,24 @@
+.section {
+    margin-top: 20px;
+}
+
+.create-note {
+    margin-left: 20px;
+}
+
+.add-note {
+    border-radius: 2px;
+}
+
+.goback-note-link {
+    color: rgb(25, 25, 233);
+    text-decoration: none;
+    font-size: larger;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.goback-note-link:hover {
+    color: coral;
+}

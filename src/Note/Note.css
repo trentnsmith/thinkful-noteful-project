@@ -1,0 +1,11 @@
+.note-delete {
+    padding: 5px 5px;
+    margin: 2px 4px;
+    border-radius: 12%;
+    background: midnightblue;
+    color: mintcream;
+}
+
+.title, .date {
+    margin-left: 4px;
+}

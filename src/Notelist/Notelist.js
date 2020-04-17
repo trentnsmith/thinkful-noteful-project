@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NoteContext from '../NoteContext';
 import Note from '../Note/Note';
+import './Notelist.css';
 
 class Notelist  extends Component {
     static contextType = NoteContext;
@@ -17,7 +18,7 @@ class Notelist  extends Component {
                 {filteredNotes.map((note) => {
             
                     return(
-                        <div>
+                        <div className="notelist">
                             <Note 
                                 name={note.name}
                                 id={note.id}
@@ -26,9 +27,11 @@ class Notelist  extends Component {
                         </div>
                     )
                 })}
-                    <Link to={'/add-note'}>
-                        Add note
-                    </Link>
+                    <div className="addnote-div">
+                        <Link className="addnote-link" to={'/add-note'}>
+                            Add note
+                        </Link>
+                    </div>
             </div>
             
         )

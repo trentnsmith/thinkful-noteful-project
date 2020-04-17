@@ -1,0 +1,33 @@
+.folder-list {
+    margin-left: 10px;
+}
+
+.folder-div {
+    border-radius: 5px black solid;
+    border-style: groove;
+    height: 50px;
+    text-align: center;
+}
+
+.folder-link {
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 600;
+}
+.addfolder-link {
+    text-decoration: none;
+    font-size: larger;
+    border: none;
+    background-color: lightseagreen;
+    border-radius: 45%;
+    padding: 10px 10px;
+}
+
+.addfolder-div {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.addfolder-link:hover {
+    color: rgb(224, 112, 7);
+}

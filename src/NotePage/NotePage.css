@@ -1,13 +1,20 @@
-.create-folder {
-    margin-left: 20px;
+.Note {
+    margin-left: 50px;
+    width: 70%;
+} 
+
+.note-title {
+    font-size: x-large;
 }
 
-.folder-submit {
+.goback {
     margin-top: 20px;
-    border-radius: 2px;
+    margin-left: 100px;
+    border-radius: 5px;
+    width: fit-content;
 }
 
-.back-folder-link {
+.link {
     color: rgb(25, 25, 233);
     text-decoration: none;
     font-size: larger;
@@ -16,10 +23,6 @@
     padding: 10px;
 }
 
-.back-folder-link:hover {
+.link:hover {
     color: coral;
-}
-
-.back-folder-div {
-    margin-top: 50px;
 }

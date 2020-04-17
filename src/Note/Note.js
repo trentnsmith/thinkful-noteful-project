@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NoteContext from '../NoteContext';
+import './Note.css';
 
 class Note extends Component {
     static contextType = NoteContext;
@@ -15,21 +16,21 @@ class Note extends Component {
         console.log(modified)
         return (
             <div>
-                <h1>
+                <h1 className="title">
                     <Link to={`/note/${id}`}>
                         {name}
                     </Link>
-                        </h1>
-                            <p>Modified 
-                                {' '}
-                                <span>
-                                    {modified}
-                                </span>
-                            </p>
-                            <button 
-                    className="Note_delete"
+                </h1>
+                <p className="date">Modified 
+                    {' '}
+                    <span>
+                       dateFormat{modified}
+                    </span>
+                </p>
+                <button 
+                    className="note-delete"
                     onClick={this.handleDeleteNote}
-                 >
+                >
                     Remove
                </button>
             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import STORE from '../dummy-store';
+//import STORE from '../dummy-store';
 import Header from '../Header/Header'
 import Mainpage from '../Mainpage/Mainpage';
 import NoteDetail from '../NotePage/NotePage';
@@ -39,15 +39,9 @@ class App extends Component {
     });
   }
 
-  handleDeleteFolder = (id) => {
-    this.setState({
-      folders: this.state.folders.filter(folder => folder.id !== id)
-    })
-  }
-
   handleAddNote = (newNote) => {
     this.setState({
-      note: this.state.notes.concat(newNote)
+      notes: this.state.notes.concat(newNote)
     })
   } 
 
@@ -62,7 +56,6 @@ class App extends Component {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
-      deleteFolder: this.handleDeleteFolder,
       addNote: this.handleAddNote,
       addFolder: this.handleAddFolder
     };

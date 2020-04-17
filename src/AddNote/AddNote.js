@@ -3,6 +3,7 @@ import STORE from '../dummy-store';
 import NoteContext from '../NoteContext';
 import { Link } from 'react-router-dom';
 import ValidationError from '../Validation';
+import './AddNote.css';
 
 class AddNote extends Component {
     state = {
@@ -37,8 +38,8 @@ class AddNote extends Component {
                 body: JSON.stringify(newNote)})
             .then(async (response) => {
                 let savedNote = await response.json();
-                this.props.history.push('/')
                 this.context.addNote(savedNote);
+                this.props.history.push('/')
             })
             .catch((error) => {
                 console.log(error)
@@ -64,23 +65,23 @@ class AddNote extends Component {
     render() {
         return(
             
-            <section>
+            <section className="create-note">
                 <h2>Create a note</h2>
                 <form onSubmit={this.handleFormSubmit}> 
-                    <div>
-                        <label>
+                    <div className="section">
+                        <label className="name-label">
                             Name
                         </label>
-                        <input type="text" onChange={this.handleNoteName} />
+                        <input className="name-input" type="text" onChange={this.handleNoteName} />
                         <ValidationError message={this.validateName()} />
                     </div>
-                    <div>
+                    <div className="section">
                         <label>
                             Content
                         </label>
                         <textarea onChange={this.handleNoteContent} />
                     </div>
-                    <div>
+                    <div className="section">
                         <label>
                             Folder
                         </label>
@@ -93,11 +94,11 @@ class AddNote extends Component {
                                 )}
                         </select>
                     </div>
-                    <div>
-                        <input type="submit" value="Add note" />
+                    <div className="section">
+                        <input className="add-note" type="submit" value="Add note" />
                     </div>
-                    <div>
-                        <Link to='/'>
+                    <div className="section">
+                        <Link className="goback-note-link" to='/'>
                             Go Back
                         </Link>
                     </div>
