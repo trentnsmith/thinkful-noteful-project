@@ -10,7 +10,7 @@ class AddNote extends Component {
         content: '',
         folderId: ''
       }
-    
+    static contextType = NoteContext;
     handleNoteName = (e) => {
         this.setState({name: e.target.value})
     }
@@ -37,7 +37,7 @@ class AddNote extends Component {
                 body: JSON.stringify(newNote)})
             .then(async (response) => {
                 let savedNote = await response.json();
-                this.context.addNote(savedNote);
+                this.context.addNote(newNote);
                 this.props.history.push('/')
     
             })

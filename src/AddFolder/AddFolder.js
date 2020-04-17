@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ValidationError from '../Validation';
+import NoteContext from '../NoteContext';
 
 class AddFolder extends Component {
     state = {
         name: ''
     }
+    static contextType = NoteContext;
 
     handleNameChange = (e) => {
         this.setState({name: e.target.value})
@@ -25,6 +27,7 @@ class AddFolder extends Component {
             .then((responseJson) => {
                 console.log(responseJson)
                 this.props.history.push('/')
+                this.context.addFolder()
 
             })
             .catch((error) => {
