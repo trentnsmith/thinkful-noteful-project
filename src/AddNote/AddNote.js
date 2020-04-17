@@ -5,19 +5,24 @@ import { Link } from 'react-router-dom';
 import ValidationError from '../Validation';
 
 class AddNote extends Component {
+    state = {
+        name: '',
+        content: '',
+        folderId: ''
+      }
     
-    handleNoteName(e) {
+    handleNoteName = (e) => {
         this.setState({name: e.target.value})
     }
     
-    handleNoteFolderId(e) {
+    handleNoteFolderId = (e) => {
         this.setState({folderId: e.target.value})
     }
-    handleNoteContent(e) {
+    handleNoteContent = (e) => {
         this.setState({content: e.target.value})
     }
 
-    handleFormSubmit(e) {
+    handleFormSubmit = (e) => {
         e.preventDefault();
         let newNote = {
             name: this.state.name,
@@ -30,13 +35,11 @@ class AddNote extends Component {
                 {method: 'POST', 
                 headers: {'content-type': 'application/json'}, 
                 body: JSON.stringify(newNote)})
-            .then((response) => {
-                return response.json
-            })
-            .then((responseJson) => {
-                console.log(responseJson)
+            .then(async (response) => {
+                let savedNote = await response.json();
+                this.context.addNote(savedNote);
                 this.props.history.push('/')
-                
+    
             })
             .catch((error) => {
                 console.log(error)
@@ -46,14 +49,14 @@ class AddNote extends Component {
         }
     }
 
-    validateName() {
-        let name = this.state.name.value.trim();
+    validateName = () => {
+        let name = this.state.name.trim();
         if (name.length === 0) {
             return 'Name is required';
         }
     }
-    validateContent() {
-        let content = this.state.content.value.trim();
+    validateContent = () => {
+        let content = this.state.content.trim();
         if (content.length === 0) {
             return 'Content is required'
         }

@@ -39,12 +39,29 @@ class App extends Component {
     });
   }
 
+  addNote = (newNote) => {
+    fetch(`http://localhost:9090/notes`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newNote)
+    })
+    .then(async (resp) => {
+      let savedNote = await resp.json()
+      this.context.addNote(savedNote);
+      this.props.history.push('/');
+    })
+    .catch(err => 
+      this.context.onError(err))
+  } 
 
   render () {
     let value = {
       notes: this.state.notes,
       folders: this.state.folders,
-      deleteNote: this.handleDeleteNote
+      deleteNote: this.handleDeleteNote,
+      addNote: this.addNote
     };
     return (
       <NoteContext.Provider value={value}>

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ValidationError from '../Validation';
 
 class AddFolder extends Component {
+    state = {
+        name: ''
+    }
 
     handleNameChange = (e) => {
         this.setState({name: e.target.value})
@@ -31,6 +35,13 @@ class AddFolder extends Component {
         }
     }
 
+    validateFolderName = () => {
+        let name = this.state.name.trim();
+        if (name.length === 0) {
+            return 'Name is required';
+        }
+    }
+
     render() {
         return(
             <section>
@@ -41,6 +52,7 @@ class AddFolder extends Component {
                            Name
                        </label>
                        <input type="text" onChange={this.handleNameChange}/>
+                       <ValidationError message={this.validateFolderName} />
                    </div>
                    <div>
                        <input type="submit" value="Add folder" />    
