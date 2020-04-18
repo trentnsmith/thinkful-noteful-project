@@ -55,6 +55,7 @@ class AddNote extends Component {
                 body: JSON.stringify(newNote)})
             .then(async (response) => {
                 let savedNote = await response.json();
+                console.log(savedNote);
                 this.context.addNote(savedNote);
                 this.props.history.push('/')
             })
