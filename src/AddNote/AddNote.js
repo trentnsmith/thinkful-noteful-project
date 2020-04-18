@@ -43,9 +43,9 @@ class AddNote extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault();
         let newNote = {
-            name: this.state.name,
-            content: this.state.content,
-            folderId: this.state.folderId,
+            name: this.state.name.value,
+            content: this.state.content.value,
+            folderId: this.state.folderId.value,
             modified: new Date()
         }
         if (this.state.name) {
