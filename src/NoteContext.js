@@ -1,5 +1,5 @@
 import React from 'react'
-import STORE from './dummy-store';
+//import STORE from './dummy-store';
 
 const NoteContext = React.createContext({
   notes: [],

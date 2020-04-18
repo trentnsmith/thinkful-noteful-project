@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import STORE from '../dummy-store';
+//import STORE from '../dummy-store';
 import NoteContext from '../NoteContext';
 import { Link } from 'react-router-dom';
 import ValidationError from '../Validation';
@@ -7,11 +7,22 @@ import './AddNote.css';
 
 class AddNote extends Component {
     state = {
-        name: '',
-        content: '',
-        folderId: ''
-      }
+        name: {
+            value: '',
+            touched: false
+        },
+        content: {
+            value: '',
+            touched: false
+        },
+        folderId: {
+            value: '',
+            touched: false
+        }
+      };
+
     static contextType = NoteContext;
+
     handleNoteName = (e) => {
         this.setState({name: e.target.value})
     }
@@ -50,13 +61,19 @@ class AddNote extends Component {
     }
 
     validateName = () => {
-        let name = this.state.name.trim();
+        let name = this.state.name.value.trim();
+        if (!this.state.name.touched) {
+            return
+        }
         if (name.length === 0) {
             return 'Name is required';
         }
     }
     validateContent = () => {
-        let content = this.state.content.trim();
+        let content = this.state.content.value.trim();
+        if (!this.state.content.touched) {
+            return
+        }
         if (content.length === 0) {
             return 'Content is required'
         }
@@ -72,26 +89,28 @@ class AddNote extends Component {
                         <label className="name-label">
                             Name
                         </label>
-                        <input className="name-input" type="text" onChange={this.handleNoteName} />
+                        <input className="name-input" type="text" onChange={this.handleNoteName} required/>
                         <ValidationError message={this.validateName()} />
                     </div>
                     <div className="section">
                         <label>
                             Content
                         </label>
-                        <textarea onChange={this.handleNoteContent} />
+                        <textarea onChange={this.handleNoteContent} required/>
+                        <ValidationError message={this.validateContent()} />
                     </div>
                     <div className="section">
                         <label>
                             Folder
                         </label>
-                        <select onChange={this.handleNoteFolderId}>
+                        <select 
+                        onChange={this.handleNoteFolderId} 
+                        required
+                        >
                             <option value={null}>Choose folder</option>
-                            {STORE.folders.map(folder =>
-                                <option key={folder.id} value={folder.id}>
-                                    {folder.name}
-                                </option>
-                                )}
+                            {this.context.folders.map(folder =>
+              <option key={folder.folderid} value={folder.folderid}>{folder.title}</option>
+            )}
                         </select>
                     </div>
                     <div className="section">
