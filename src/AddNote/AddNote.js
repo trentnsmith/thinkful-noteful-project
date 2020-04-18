@@ -118,7 +118,7 @@ class AddNote extends Component {
                             {this.context.folders.map(folder =>
                                 <option 
                                     key={folder.folderId} 
-                                    value={folder.folderId}>
+                                    value={folder.id}>
                                         {folder.name}
                                 </option>
                             )}
