@@ -61,7 +61,7 @@ class AddNote extends Component {
     }
 
     validateName = () => {
-        let name = this.state.name.value.trim();
+        let name = this.state.name.trim();
         if (!this.state.name.touched) {
             return
         }
@@ -70,7 +70,7 @@ class AddNote extends Component {
         }
     }
     validateContent = () => {
-        let content = this.state.content.value.trim();
+        let content = this.state.content.trim();
         if (!this.state.content.touched) {
             return
         }
@@ -109,8 +109,12 @@ class AddNote extends Component {
                         >
                             <option value={null}>Choose folder</option>
                             {this.context.folders.map(folder =>
-              <option key={folder.folderid} value={folder.folderid}>{folder.title}</option>
-            )}
+                                <option 
+                                    key={folder.folderId} 
+                                    value={folder.folderId}>
+                                        {folder.name}
+                                </option>
+                            )}
                         </select>
                     </div>
                     <div className="section">
