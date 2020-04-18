@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import NoteContext from '../NoteContext';
 import Note from '../Note/Note';
 import './Notelist.css';
@@ -37,5 +38,7 @@ class Notelist  extends Component {
         )
     }
 }
+
+
 
 export default Notelist; 

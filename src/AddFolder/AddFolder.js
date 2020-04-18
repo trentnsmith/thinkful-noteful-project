@@ -55,7 +55,7 @@ class AddFolder extends Component {
                        <label>
                            Name
                        </label>
-                       <input type="text" onChange={this.handleNameChange}/>
+                       <input type="text" onChange={this.handleNameChange} required/>
                        <ValidationError message={this.validateFolderName} />
                    </div>
                    <div>

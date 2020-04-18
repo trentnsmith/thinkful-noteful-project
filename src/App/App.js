@@ -29,6 +29,7 @@ class App extends Component {
       return resp.json()
     })
     .then((notes) => {
+      console.log(notes)
       this.setState({notes})
     })
   }
