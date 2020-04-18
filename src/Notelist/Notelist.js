@@ -39,6 +39,8 @@ class Notelist  extends Component {
     }
 }
 
-
+Notelist.propTypes = {
+    value: PropTypes.string.isRequired
+}
 
 export default Notelist; 
