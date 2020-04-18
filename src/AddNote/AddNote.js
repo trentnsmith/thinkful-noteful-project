@@ -24,7 +24,9 @@ class AddNote extends Component {
     static contextType = NoteContext;
 
     handleNoteName = (e) => {
-        this.setState({name: e.target.value})
+        let {name} = this.state
+        name.value = e.target.value
+        this.setState({name})
     }
     
     handleNoteFolderId = (e) => {
