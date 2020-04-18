@@ -30,10 +30,14 @@ class AddNote extends Component {
     }
     
     handleNoteFolderId = (e) => {
-        this.setState({folderId: e.target.value})
+        let {folderId} = this.state
+        folderId.value = e.target.value
+        this.setState({folderId})
     }
     handleNoteContent = (e) => {
-        this.setState({content: e.target.value})
+        let {content} = this.state
+        content.value = e.target.value
+        this.setState({content})
     }
 
     handleFormSubmit = (e) => {
@@ -63,7 +67,7 @@ class AddNote extends Component {
     }
 
     validateName = () => {
-        let name = this.state.name.trim();
+        let name = this.state.name.value.trim();
         if (!this.state.name.touched) {
             return
         }
@@ -72,7 +76,7 @@ class AddNote extends Component {
         }
     }
     validateContent = () => {
-        let content = this.state.content.trim();
+        let content = this.state.content.value.trim();
         if (!this.state.content.touched) {
             return
         }
