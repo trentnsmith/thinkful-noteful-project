@@ -1,5 +1,5 @@
 import React from 'react';
-import { Component, createContext } from "react";
+import { Component } from "react";
 //import STORE from './dummy-store';
 import NoteContext from '../NoteContext';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ class NoteDetail extends Component {
         console.log(this.context)
         let note = this.context.notes.filter((note) => {
             
-            return note.id == this.props.match.params.noteId
+            return note.id === this.props.match.params.noteId
         })
         //console.log(new Date(note[0].modified))
         //let newDate = new Date(note[0].modified)

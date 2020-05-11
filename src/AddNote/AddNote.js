@@ -7,7 +7,7 @@ import './AddNote.css';
 
 class AddNote extends Component {
     state = {
-        name: {
+        note_name: {
             value: '',
             touched: false
         },
@@ -24,9 +24,9 @@ class AddNote extends Component {
     static contextType = NoteContext;
 
     handleNoteName = (e) => {
-        let {name} = this.state
-        name.value = e.target.value
-        this.setState({name})
+        let {note_name} = this.state
+        note_name.value = e.target.value
+        this.setState({note_name})
     }
     
     handleNoteFolderId = (e) => {
@@ -43,12 +43,12 @@ class AddNote extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault();
         let newNote = {
-            name: this.state.name.value,
+            note_name: this.state.note_name.value,
             content: this.state.content.value,
             folderId: this.state.folderId.value,
             modified: new Date()
         }
-        if (this.state.name) {
+        if (this.state.note_name) {
             fetch('http://localhost:8000/api/notes', 
                 {method: 'POST', 
                 headers: {'content-type': 'application/json'}, 
@@ -68,8 +68,8 @@ class AddNote extends Component {
     }
 
     validateName = () => {
-        let name = this.state.name.value.trim();
-        if (!this.state.name.touched) {
+        let name = this.state.note_name.value.trim();
+        if (!this.state.note_name.touched) {
             return
         }
         if (name.length === 0) {
