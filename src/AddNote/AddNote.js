@@ -49,7 +49,7 @@ class AddNote extends Component {
             modified: new Date()
         }
         if (this.state.name) {
-            fetch('http://localhost:9090/notes', 
+            fetch('http://localhost:8000/api/notes', 
                 {method: 'POST', 
                 headers: {'content-type': 'application/json'}, 
                 body: JSON.stringify(newNote)})
@@ -87,6 +87,7 @@ class AddNote extends Component {
     }
     
     render() {
+        console.log(this.context)
         return(
             
             <section className="create-note">
@@ -117,9 +118,9 @@ class AddNote extends Component {
                             <option value={null}>Choose folder</option>
                             {this.context.folders.map(folder =>
                                 <option 
-                                    key={folder.folderId} 
+                                    key={folder.id} 
                                     value={folder.id}>
-                                        {folder.name}
+                                        {folder.folder_name}
                                 </option>
                             )}
                         </select>

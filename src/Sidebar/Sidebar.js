@@ -12,7 +12,7 @@ class Sidebar extends Component {
                     return(
                         <div className="folder-div"> 
                             <Link className="folder-link" to={`/folder/${folder.id }`}>
-                                {folder.name}                            
+                                {folder.folder_name}                            
                             </Link>
                         </div>
                     )

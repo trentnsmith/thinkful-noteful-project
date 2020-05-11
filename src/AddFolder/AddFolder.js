@@ -17,10 +17,10 @@ class AddFolder extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault();
         if (this.state.name) {
-            fetch('http://localhost:9090/folders', {
+            fetch('http://localhost:8000/api/folders', {
                 method: 'POST', 
                 headers: {'content-type': 'application/json'}, 
-                body: JSON.stringify({name: this.state.name})
+                body: JSON.stringify({ folder_name: this.state.name })
             })
             .then((response) => {
                 return response.json()
@@ -47,6 +47,7 @@ class AddFolder extends Component {
     }
 
     render() {
+        console.log(this.context)
         return(
             <section className="create-folder">
                 <h2>Create a folder</h2>

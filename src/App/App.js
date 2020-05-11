@@ -17,14 +17,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:9090/folders`)    
+    fetch(`http://localhost:8000/api/folders`)    
     .then((resp) => {
       return resp.json()    
     })
     .then((folders) => {
       this.setState({folders})
     })
-    fetch(`http://localhost:9090/notes`)
+    fetch(`http://localhost:8000/api/notes`)
     .then((resp) => {
       return resp.json()
     })
