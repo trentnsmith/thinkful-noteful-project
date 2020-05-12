@@ -26,7 +26,7 @@ class AddFolder extends Component {
                 return response.json()
             })
             .then((responseJson) => {
-                console.log(responseJson)
+                
                 this.props.history.push('/')
                 this.context.addFolder(responseJson)
 
@@ -47,7 +47,7 @@ class AddFolder extends Component {
     }
 
     render() {
-        console.log(this.context)
+       
         return(
             <section className="create-folder">
                 <h2>Create a folder</h2>

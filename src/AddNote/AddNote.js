@@ -48,7 +48,7 @@ class AddNote extends Component {
             folder_id: this.state.folderId.value,
             modified: new Date()
         }
-        //console.log(newNote)
+       
         if (this.state.note_name) {
             fetch('http://localhost:8000/api/notes', 
                 {method: 'POST', 
@@ -58,7 +58,7 @@ class AddNote extends Component {
                 return response.json();    
             })
             .then((savedNote) => {
-                console.log(savedNote)
+               
                 this.context.addNote(savedNote)
                 this.props.history.push('/')
             })
@@ -90,7 +90,7 @@ class AddNote extends Component {
     }
     
     render() {
-        //console.log(this.context)
+       
         return(
             
             <section className="create-note">
