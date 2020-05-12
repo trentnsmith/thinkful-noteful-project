@@ -11,7 +11,7 @@ class Notelist  extends Component {
         let filteredNotes = this.context.notes
         if (this.props.folderId) {
             filteredNotes = filteredNotes.filter((note) => {
-                return note.folder_id === this.props.folderId
+                return note.folderId === this.props.folderId
             })
         }
         return(
