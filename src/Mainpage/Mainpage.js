@@ -10,11 +10,8 @@ class Mainpage extends Component {
     getRequests = () => {
         
     } 
-
     render() {
         console.log(this.props.match.params)
-
-      
         return(
             <div className="mainpage">
                <Sidebar />

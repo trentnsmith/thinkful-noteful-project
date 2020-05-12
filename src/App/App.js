@@ -29,7 +29,7 @@ class App extends Component {
       return resp.json()
     })
     .then((notes) => {
-      console.log(notes)
+      console.log('initial notes list get', notes)
       this.setState({notes})
     })
   }

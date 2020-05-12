@@ -45,19 +45,21 @@ class AddNote extends Component {
         let newNote = {
             note_name: this.state.note_name.value,
             content: this.state.content.value,
-            folderId: this.state.folderId.value,
+            folder_id: this.state.folderId.value,
             modified: new Date()
         }
-        console.log(newNote)
+        //console.log(newNote)
         if (this.state.note_name) {
             fetch('http://localhost:8000/api/notes', 
                 {method: 'POST', 
                 headers: {'content-type': 'application/json'}, 
                 body: JSON.stringify(newNote)})
             .then((response) => {
-                let savedNote = response.json();
-                console.log(savedNote);
-                this.context.addNote(savedNote);
+                return response.json();    
+            })
+            .then((savedNote) => {
+                console.log(savedNote)
+                this.context.addNote(savedNote)
                 this.props.history.push('/')
             })
             .catch((error) => {

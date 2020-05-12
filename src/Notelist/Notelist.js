@@ -10,8 +10,10 @@ class Notelist  extends Component {
     render() {
         let filteredNotes = this.context.notes
         if (this.props.folderId) {
+            //console.log(this.props.folderId, 'testing this shit')
             filteredNotes = filteredNotes.filter((note) => {
-                return note.folderId === this.props.folderId
+                //console.log('this is note filter', note)
+                return note.folder_id === parseInt(this.props.folderId)
             })
         }
         return(
