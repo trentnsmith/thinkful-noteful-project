@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8000/api/folders`)    
+    fetch(`https://mysterious-ridge-99803.herokuapp.com/api/folders`)    
     .then((resp) => {
       return resp.json()    
     })
