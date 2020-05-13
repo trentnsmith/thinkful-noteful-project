@@ -24,7 +24,7 @@ class App extends Component {
     .then((folders) => {
       this.setState({folders})
     })
-    fetch(`http://localhost:8000/api/notes`)
+    fetch(`https://mysterious-ridge-99803.herokuapp.com/api/notes`)
     .then((resp) => {
       return resp.json()
     })
