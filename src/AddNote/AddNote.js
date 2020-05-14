@@ -119,7 +119,7 @@ class AddNote extends Component {
                         onChange={this.handleNoteFolderId} 
                         required
                         >
-                            <option value={null}>Choose folder</option>
+                            <option value={null} required>Choose folder</option>
                             {this.context.folders.map(folder =>
                                 <option 
                                     key={folder.id} 
