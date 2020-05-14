@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import NoteContext from '../NoteContext';
 import { Link } from 'react-router-dom';
 import ValidationError from '../Validation';
+import config from '../config';
 import './AddNote.css';
 
 class AddNote extends Component {
@@ -50,7 +51,7 @@ class AddNote extends Component {
         }
        
         if (this.state.note_name) {
-            fetch('http://localhost:8000/api/notes', 
+            fetch(`${config.API_ENDPOINT}/notes`, 
                 {method: 'POST', 
                 headers: {'content-type': 'application/json'}, 
                 body: JSON.stringify(newNote)})

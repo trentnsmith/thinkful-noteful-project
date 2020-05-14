@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import Header from '../Header/Header'
 import Mainpage from '../Mainpage/Mainpage';
 import NoteDetail from '../NotePage/NotePage';
+import config from '../config';
 import NoteContext from '../NoteContext'
 import AddFolder from '../AddFolder/AddFolder';
 import AddNote from '../AddNote/AddNote';
@@ -17,14 +18,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://mysterious-ridge-99803.herokuapp.com/api/folders`)    
+    fetch(`${config.API_ENDPOINT}/folders`)    
     .then((resp) => {
       return resp.json()    
     })
     .then((folders) => {
       this.setState({folders})
     })
-    fetch(`https://mysterious-ridge-99803.herokuapp.com/api/notes`)
+    fetch(`${config.API_ENDPOINT}/notes`)
     .then((resp) => {
       return resp.json()
     })

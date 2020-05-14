@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ValidationError from '../Validation';
 import NoteContext from '../NoteContext';
+import config from '../config';
 import './AddFolder.css';
 
 class AddFolder extends Component {
@@ -17,7 +18,7 @@ class AddFolder extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault();
         if (this.state.name) {
-            fetch('http://localhost:8000/api/folders', {
+            fetch(`${config.API_ENDPOINT}/folders`, {
                 method: 'POST', 
                 headers: {'content-type': 'application/json'}, 
                 body: JSON.stringify({ folder_name: this.state.name })
