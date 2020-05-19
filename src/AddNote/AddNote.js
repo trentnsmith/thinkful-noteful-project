@@ -17,7 +17,7 @@ class AddNote extends Component {
             touched: false
         },
         folderId: {
-            value: '',
+            value: null,
             touched: false
         }
       };
@@ -49,8 +49,9 @@ class AddNote extends Component {
             folder_id: this.state.folderId.value,
             modified: new Date()
         }
-        if (this.state.folder_id === null) {
+        if (this.state.folderId.value === null) {
             alert('please choose a folder')
+            return;
         }
         if (this.state.note_name) {
             fetch(`${config.API_ENDPOINT}/notes`, 
