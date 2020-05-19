@@ -49,7 +49,9 @@ class AddNote extends Component {
             folder_id: this.state.folderId.value,
             modified: new Date()
         }
-       
+        if (this.state.folder_id === null) {
+            alert('please choose a folder')
+        }
         if (this.state.note_name) {
             fetch(`${config.API_ENDPOINT}/notes`, 
                 {method: 'POST', 
@@ -69,6 +71,7 @@ class AddNote extends Component {
         } else {
             alert('please enter something')
         }
+      
     }
 
     validateName = () => {
